@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unpaid Labour</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Left Panel -->
+    <aside class="panel panel-left">
+      <div class="logo">
+        <img src="assets/logo.png" alt="UL">
+      </div>
+      <div class="about">
+        <p>Unpaid Labor is a multidisciplinary art and design studio established in 2025 by Linda Dounia Rebeiz and Delali Vorgbe. We currently make AI that thinks otherwise by exposing it to frameworks that organize meaning differently.</p>
+        <p>We build things you can encounter online and in physical space.</p>
+        <p>Our practice begins from a provocation: that AI's intellectual and moral foundations are narrower than they need to be, and that indigenous cosmologies offer frameworks for more relational, ecological, and pluralistic reasoning.</p>
+      </div>
+    </aside>
+
+    <!-- Main Content Panel -->
+    <main class="panel panel-main">
+    </main>
+
+    <!-- Right Sidebar -->
+    <aside class="panel-right">
+      <div class="sidebar-top">
+        <span class="datetime" id="datetime"></span>
+      </div>
+      <div class="sidebar-content">
+      </div>
+      <div class="sidebar-contact">
+        <a href="mailto:contact@unpaidlabour.com">contact@unpaidlabour.com</a>
+      </div>
+      <div class="sidebar-address">
+        1111B S Governors Ave, STE 48548, Dover DE, 19904 US
+      </div>
+    </aside>
+  </div>
+
+  <script>
+    function updateDateTime() {
+      const now = new Date();
+      const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+      const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+      const day = days[now.getUTCDay()];
+      const month = months[now.getUTCMonth()];
+      const date = now.getUTCDate();
+      const year = now.getUTCFullYear();
+
+      let hours = now.getUTCHours();
+      const minutes = now.getUTCMinutes().toString().padStart(2, '0');
+      const ampm = hours >= 12 ? 'PM' : 'AM';
+      hours = hours % 12;
+      hours = hours ? hours : 12;
+
+      const formatted = `${day} / ${month} ${date}, ${year} / ${hours}:${minutes} ${ampm} UTC`;
+      document.getElementById('datetime').textContent = formatted;
+    }
+
+    updateDateTime();
+    setInterval(updateDateTime, 60000);
+  </script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Inconsolata', monospace;
+  font-size: 12px;
+  line-height: 18px;
+  color: #000;
+  background: #fff;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 360px 1fr 360px;
+  height: 100vh;
+  padding: 14px 16px;
+  gap: 14px;
+}
+
+.panel {
+  background: #f8f8f8;
+  border: 1px solid #a2a2a2;
+}
+
+/* Left Panel */
+.panel-left {
+  display: flex;
+  flex-direction: column;
+  padding: 18px 20px;
+}
+
+.logo {
+  margin-bottom: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.logo img {
+  width: 151px;
+  height: auto;
+  image-rendering: pixelated;
+}
+
+.about {
+  text-align: justify;
+}
+
+.about p {
+  margin-bottom: 18px;
+}
+
+.about p:last-child {
+  margin-bottom: 0;
+}
+
+/* Main Panel */
+.panel-main {
+  min-height: 0;
+}
+
+/* Right Sidebar */
+.panel-right {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.sidebar-top {
+  background: #f8f8f8;
+  border: 1px solid #a2a2a2;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.datetime {
+  font-size: 12px;
+  line-height: 20px;
+  text-align: center;
+}
+
+.sidebar-content {
+  background: #f8f8f8;
+  border: 1px solid #a2a2a2;
+  border-top: none;
+  flex: 1;
+}
+
+.sidebar-contact {
+  background: #f8f8f8;
+  border: 1px solid #a2a2a2;
+  border-top: none;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar-contact a {
+  color: #000;
+  text-decoration: none;
+}
+
+.sidebar-contact a:hover {
+  text-decoration: underline;
+}
+
+.sidebar-address {
+  background: #f8f8f8;
+  border: 1px solid #a2a2a2;
+  border-top: none;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 20px;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 1200px) {
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .panel-left {
+    order: 1;
+  }
+
+  .panel-main {
+    order: 2;
+    min-height: 400px;
+  }
+
+  .panel-right {
+    order: 3;
+  }
+}
